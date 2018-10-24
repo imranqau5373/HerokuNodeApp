@@ -32,8 +32,10 @@ router.get('/logout', function(req, res, next) {
 
 router.post('/MemberData', function(req, res, next) {
   console.log('Member data.')
+  console.log('access token.',req.body);
   var accessToken = req.body.accessToken;
   var accountId = req.body.accountId;
+
   
   request.get(`${settings.memberShipUrl}/accounts/${accountId}/membershiplevels`,{
      headers: {
@@ -50,6 +52,7 @@ router.post('/MemberData', function(req, res, next) {
     }
     else {
       res.status(200);
+      console.log(body);
       res.json(body);
     }
   });
