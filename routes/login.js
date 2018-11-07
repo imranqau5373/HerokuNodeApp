@@ -6,8 +6,13 @@ var router = express.Router();
 var session = require('express-session');
 
 let settings = {
+<<<<<<< HEAD
   clientId : 'ynicj7x4xq',//'xcqzmrmdhs',
   clientSecret : 'xqj4zj0qf3aruwm7z9j2kellbyg40m',//'vhy0lod2ssttqpofycxshus0v7roes',
+=======
+  clientId : 'xcqzmrmdhs',
+  clientSecret : 'vhy0lod2ssttqpofycxshus0v7roes',
+>>>>>>> a00389017f1c234487852f71483630c2ed5987f0
   oAuthUrl : 'https://oauth.wildapricot.org/auth/token',
   memberShipUrl : 'https://api.wildapricot.org/v2'
 
@@ -32,8 +37,15 @@ router.get('/logout', function(req, res, next) {
 
 router.post('/MemberData', function(req, res, next) {
   console.log('Member data.')
+<<<<<<< HEAD
   var accessToken = req.body.accessToken;
   var accountId = req.body.accountId;
+=======
+  console.log('access token.',req.body);
+  var accessToken = req.body.accessToken;
+  var accountId = req.body.accountId;
+
+>>>>>>> a00389017f1c234487852f71483630c2ed5987f0
   
   request.get(`${settings.memberShipUrl}/accounts/${accountId}/membershiplevels`,{
      headers: {
@@ -50,6 +62,10 @@ router.post('/MemberData', function(req, res, next) {
     }
     else {
       res.status(200);
+<<<<<<< HEAD
+=======
+      console.log(body);
+>>>>>>> a00389017f1c234487852f71483630c2ed5987f0
       res.json(body);
     }
   });
