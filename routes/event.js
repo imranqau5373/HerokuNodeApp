@@ -41,59 +41,11 @@ let settings = {
   });
 
   router.post('/registerEvent', function(req, res, next) {
-    
-    var accessToken = req.body.accessToken;
-    var accountId = req.body.accountId;
-    var eventId = req.body.eventId;
-    var contactId= req.body.contactId;
-    var requestTypeId= req.body.requestTypeId;
-    var noOfGuest= req.body.numberOfGuest;
-    var numberOfGuestsCheckedIn=req.body.NumberOfGuestsCheckedIn;
-    var guestId= req.body.GuestId;
-    var guestUrl=req.body.GuestUrl;
-    var isCheckedIn=req.body.IsCheckedIn; //True or False
-    var fieldName=req.body.FieldName;
-    var systemCode=req.body.SystemCode;
-    var value=req.body.Value;
-    var showToPublic=req.body.ShowToPublic;
-    var registrationDate=req.body.RegistrationDate;
-    var memo=req.body.Memo;
-    var recreateInvoice=req.body.RecreateInvoice;
- 
+    var accessToken=req.body.accessToken;
+    var accountId= req.body.accountId;
+    console.log(req.body);
      request.post(`${settings.eventViewUrl}/accounts/${accountId}/eventregistrations`,{
-      form: {
-        Id:0,
-        Url:(`${settings.eventViewUrl}/Accounts/${accountId}`),
-        Event: {
-          Id:eventId
-        },
-        Contact: {
-          Id: contactId
-        },
-        RegistrationTypeId: requestTypeId,
-        GuestRegistrationsSummary: {
-          NumberOfGuests:noOfGuest,
-          NumberOfGuestsCheckedIn: numberOfGuestsCheckedIn,
-          GuestRegistrations: [
-            {
-              Id: guestId,
-              Url:GuestUrl
-            }
-          ]
-        },
-        IsCheckedIn: isCheckedIn,
-        RegistrationFields: [
-          {
-            FieldName: fieldName,
-            SystemCode: systemCode,
-            Value: {}
-          }
-        ],
-        ShowToPublic: showToPublic,
-        RegistrationDate: registrationDate,
-        Memo: memo,
-        RecreateInvoice: recreateInvoice,
-      },
+      form: req.body,
         headers: {
          'content-type': 'application/x-www-form-urlencoded',
          'Accept': 'application/json',
