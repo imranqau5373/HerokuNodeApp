@@ -6,8 +6,9 @@ var router = express.Router();
 var session = require('express-session');
 
 let settings = {
-  clientId : 'xcqzmrmdhs',
-  clientSecret : 'vhy0lod2ssttqpofycxshus0v7roes',
+  clientId : 'ynicj7x4xq',//'xcqzmrmdhs',// 'ynicj7x4xq',
+  clientSecret : 'xqj4zj0qf3aruwm7z9j2kellbyg40m',//'vhy0lod2ssttqpofycxshus0v7roes',
+  clientSecret : 'vhy0lod2ssttqpofycxshus0v7roes',//
   oAuthUrl : 'https://oauth.wildapricot.org/auth/token',
   memberShipUrl : 'https://api.wildapricot.org/v2'
 
@@ -35,7 +36,7 @@ router.post('/MemberData', function(req, res, next) {
   var accessToken = req.body.accessToken;
   var accountId = req.body.accountId;
 
-  
+
   
   request.get(`${settings.memberShipUrl}/accounts/${accountId}/membershiplevels`,{
      headers: {

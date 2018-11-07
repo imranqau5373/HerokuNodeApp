@@ -4,8 +4,6 @@ var router = express.Router();
 var session = require('express-session');
 
 let settings = {
-    clientId : 'ynicj7x4xq',//'xcqzmrmdhs',
-    clientSecret : 'xqj4zj0qf3aruwm7z9j2kellbyg40m',//'vhy0lod2ssttqpofycxshus0v7roes',
     oAuthUrl : 'https://oauth.wildapricot.org/auth/token',
     accountId : '',
     eventViewUrl : 'https://api.wildapricot.org/v2' //https://api.wildapricot.org/v2.1/accounts/278451/events/3096695
