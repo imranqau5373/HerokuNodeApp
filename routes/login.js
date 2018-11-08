@@ -6,9 +6,8 @@ var router = express.Router();
 var session = require('express-session');
 
 let settings = {
-  clientId : 'xcqzmrmdhs',// 'ynicj7x4xq',
-  clientSecret : 'xqj4zj0qf3aruwm7z9j2kellbyg40m',//'vhy0lod2ssttqpofycxshus0v7roes',
-  clientSecret : 'vhy0lod2ssttqpofycxshus0v7roes',//
+  clientId : 'xcqzmrmdhs',// xcqzmrmdhs,ynicj7x4xq
+  clientSecret : 'vhy0lod2ssttqpofycxshus0v7roes',//vhy0lod2ssttqpofycxshus0v7roes,xqj4zj0qf3aruwm7z9j2kellbyg40m
   oAuthUrl : 'https://oauth.wildapricot.org/auth/token',
   memberShipUrl : 'https://api.wildapricot.org/v2'
 
@@ -48,12 +47,14 @@ router.post('/MemberData', function(req, res, next) {
   },
   function( err, response, body) {
     if( err) {
-      console.error(err);
-      throw err;
+      res.status(400);
+      res.json({error : "Bad Request"});
     }
     else {
-      res.status(200);
       res.json(body);
+      res.status(200);
+      console.log("Member ship response.",body);
+      
     }
   });
 });

@@ -9,9 +9,9 @@ let settings = {
   }
 
   router.post('/getInvoices', function(req, res, next) {
-    console.log('get invoice is',req.body);
-    var accessToken = req.body.accessToken;
-    var accountId = req.body.accountId;
+    console.log('get invoice is',req.body.data);
+    var accessToken = req.body.data.accessToken;
+    var accountId = req.body.data.accountId;
      request.get(`${settings.invoiceUrl}/accounts/${accountId}/invoices`,{
         headers: {
          'content-type': 'application/x-www-form-urlencoded',
@@ -27,6 +27,7 @@ let settings = {
        }
        else {
          res.status(200);
+         console.log(res.body);
          res.json(body);
        }
      });
