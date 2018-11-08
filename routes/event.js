@@ -18,7 +18,7 @@ let settings = {
     var accessToken = req.body.memberData.accessToken;
     var accountId = req.body.memberData.accountId;
     var eventId = req.body.memberData.eventId;
-     request.get(`${settings.eventViewUrl}/accounts/${accountId}/events/${eventId}`,{
+     request.get(`${settings.eventViewUrl}/accounts/${accountId}/events`,{
         headers: {
          'content-type': 'application/x-www-form-urlencoded',
          'Accept': 'application/json',
