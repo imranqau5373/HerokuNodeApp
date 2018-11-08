@@ -69,7 +69,7 @@ let settings = {
     
   });
 
-  router.post('/eventregistrations', function(req, res, next) {
+  router.post('/getRegistrations', function(req, res, next) {
     var accessToken=req.body.accessToken;
     var accountId= req.body.accountId;
     
