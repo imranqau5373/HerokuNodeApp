@@ -8,7 +8,9 @@ let settings = {
     clientSecret : 'xqj4zj0qf3aruwm7z9j2kellbyg40m',//'vhy0lod2ssttqpofycxshus0v7roes',
     oAuthUrl : 'https://oauth.wildapricot.org/auth/token',
     accountId : '',
-    eventViewUrl : 'https://api.wildapricot.org/v2' //https://api.wildapricot.org/v2.1/accounts/278451/events/3096695
+    eventViewUrl : 'https://api.wildapricot.org/v2', //https://api.wildapricot.org/v2.1/accounts/278451/events/3096695
+    eventGetRegUrl : 'https://api.wildapricot.org/publicview/v1'
+
   
   
   }
@@ -73,7 +75,7 @@ let settings = {
     var accessToken=req.body.accessToken;
     var accountId= req.body.accountId;
     
-     request.get(`${settings.eventViewUrl}/accounts/${accountId}/eventregistrations`,{
+     request.get(`${settings.eventGetRegUrl}/accounts/${accountId}/eventregistrations`,{
         headers: {
             'content-type': 'application/x-www-form-urlencoded',
             'Accept': 'application/json',
