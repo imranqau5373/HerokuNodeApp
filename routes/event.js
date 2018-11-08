@@ -14,10 +14,10 @@ let settings = {
   }
 
   router.post('/getEvent', function(req, res, next) {
-    console.log('get Event Data',req.body.memberData);
-    var accessToken = req.body.memberData.accessToken;
-    var accountId = req.body.memberData.accountId;
-    var eventId = req.body.memberData.eventId;
+    console.log('get Event Data',req.body);
+    var accessToken = req.body.accessToken;
+    var accountId = req.body.accountId;
+    var eventId = req.body.eventId;
      request.get(`${settings.eventViewUrl}/accounts/${accountId}/events`,{
         headers: {
          'content-type': 'application/x-www-form-urlencoded',
@@ -27,6 +27,7 @@ let settings = {
        json: true,
      },
      function( err, response, body) {
+         
        if( err) {
          console.error(err);
          throw err;
