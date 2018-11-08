@@ -69,5 +69,32 @@ let settings = {
     
   });
 
+  router.post('/eventregistrations', function(req, res, next) {
+    var accessToken=req.body.accessToken;
+    var accountId= req.body.accountId;
+    
+     request.get(`${settings.eventViewUrl}/accounts/${accountId}/eventregistrations`,{
+        headers: {
+            'content-type': 'application/x-www-form-urlencoded',
+            'Accept': 'application/json',
+            "Authorization": `Bearer ${accessToken}`
+          },
+          json: true,
+     },
+     function( err, response, body) {
+         
+       if( err) {
+         console.error(err);
+         throw err;
+       }
+       else {
+         res.status(200);
+         res.json(body);
+       }
+     });
+
+    
+  });
+
 
   module.exports = router;
